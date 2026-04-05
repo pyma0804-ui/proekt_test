@@ -1,0 +1,25 @@
+/* WebGL «молния» в hero — цвета палитры сайта, screen-смешение с графитом */
+.hero__lightning {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero__lightning .lightning-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  /* Светлые участки шейдера добавляются к фону, не перекрывая текст */
+  mix-blend-mode: screen;
+  opacity: var(--lightning-opacity, 0.42);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero__lightning {
+    display: none;
+  }
+}
